@@ -1,0 +1,17 @@
+This step wraps lock step from [Lockable resources plugin](https://wiki.jenkins.io/display/JENKINS/Lockable+Resources+Plugin) and adds condition expression
+
+Definition:
+
+```groovy
+def lockWhen(LinkedHashMap params, boolean expression, Closure body) {}
+```
+
+Usage:
+
+```groovy
+boolean shouldLock = someExpression
+// Takes same parameters as lock step as first argument
+lockWhen([resource: 'my-lockable-resource'], shouldLock) {
+    // your code that needs to be executed inside lock here
+}
+```

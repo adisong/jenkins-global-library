@@ -1,0 +1,4 @@
+Use this step to parse json strings to HashMaps (uses [groovy.json.JsonSlurperClassic()](http://docs.groovy-lang.org/latest/html/gapi/groovy/json/JsonSlurperClassic.html)).
+
+Usage:
+def result = jsonParse('{"person":{"name":"Guillaume","age":33,"pets":["dog","cat"]}}')

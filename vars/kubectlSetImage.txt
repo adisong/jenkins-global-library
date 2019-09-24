@@ -1,0 +1,28 @@
+Use this step to upgrade image of existing deployment using `kubectl set image`
+
+Params:
+
+|Name|Mandatory|Description|
+|---|---|---|
+|credentialsId|yes|The Jenkins ID of the plain KubeConfig file.|
+|contextName|yes|Switch the current Context to this name. The Context must already exist in the KubeConfig file.|
+|deploymentName|yes|Kubernetes deployment object name|
+|containerName|yes|Kubernetes container name inside deployment pod object|
+|imageName|yes|New image name|
+|imageTag|yes|New image tag|
+|timeout|no|Kubectl rollout timeout in seconds (default 60)|
+
+Usage:
+
+```groovy
+def params = [
+    credentialsId: 'myapp-kubeconfig',
+    contextName: 'myapp-dev',
+    deploymentName: 'webproxy',
+    containerName: 'nginx',
+    imageName: 'nginx',
+    imageTag: '1.15.12'
+]
+
+kubectlSetImage(params)
+```
